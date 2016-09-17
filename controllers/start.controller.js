@@ -27,7 +27,7 @@ class StartController extends TelegramBaseController {
             let curse = curses.frases[randomCursePosition];
 
             $.sendMessage(`Nossa cara, ${game} ${curse}`);
-        }, 2000);
+        }, 7200000);
     }
 }
 
