@@ -14,7 +14,7 @@ class StartController extends TelegramBaseController {
 
         $.sendMessage(`Eae seus bostas, o melhor programador do mundo acabou de entrar!`);
 
-        request.get('http://api.steampowered.com/ISteamApps/GetAppList/v0001/', (error, response, body)=>{
+        request.get('http://api.steampowered.com/ISteamApps/GetAppList/v0001/', (error, response, body) => {
             let parsedResp = JSON.parse(body);
 
             games = parsedResp.applist.apps.app;

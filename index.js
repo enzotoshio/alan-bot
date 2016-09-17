@@ -19,17 +19,19 @@ let channel = {};
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
     res.render('index');
 });
 
-app.listen(port, function() {
+app.listen(port, () => {
     console.log('Our app is running on http://localhost:' + port);
 });
 
-// setInterval(() => {
-//     request.get()
-// }, 1740000);
+setInterval(() => {
+    request.get('https://alanfy-bot.herokuapp.com/', () => {
+      console.log('Stay alive!');
+    })
+}, 1740000);
 
 tg.router
     .when('/start', new StartController(channel))
