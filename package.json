@@ -12,5 +12,8 @@
   "dependencies": {
     "request": "^2.74.0",
     "telegram-node-bot": "^3.0.12"
+  },
+  "engines": {
+    "node": "6.4.0"
   }
 }
