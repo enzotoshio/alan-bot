@@ -6,18 +6,25 @@ const DumbAlanController = require('./controllers/dumb-alan.controller');
 const StartController = require('./controllers/start.controller');
 const StopController = require('./controllers/stop.controller');
 const request = require('request');
-const server = require('node-router').getServer();
+const http = require('http');
+const Router = require('node-router');
 
 const token = '273431119:AAEhnEY5n-IEPS7cl_TPQcAlH18Jo0jHE70';
 const TelegramBaseController = Telegram.TelegramBaseController;
 const tg = new Telegram.Telegram(token);
+const router = Router();    // create a new Router instance
+const route = router.push;  // shortcut for router.push()
 
+let server;
 let channel = {};
 
+route(routeHandler);
 
-server.get("/", function (request, response) {
-  response.simpleText(200, "Hello World!");
-});
+server = http.createServer(router).listen(8080);  // launch the server
+
+function routeHandler(req, res, next) {
+  res.send('Hello!');
+}
 
 // setInterval(() => {
 //
