@@ -4,7 +4,7 @@ const curses = require('../feed/curses');
 
 class OpinionController extends TelegramBaseController {
     handle($) {
-        let randomCursePosition = Math.floor((Math.random() * curses.frases.length - 1));
+        let randomCursePosition = Math.floor((Math.random() * (curses.frases.length - 1)));
 
         if (!$.query.subject) {
           $.sendMessage(`Poha, você quer minha opinião no que?`);

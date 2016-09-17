@@ -21,8 +21,8 @@ class StartController extends TelegramBaseController {
         })
 
         this.channel.interval = setInterval(()=> {
-            let randomGamePosition = Math.floor((Math.random() * games.length - 1));
-            let randomCursePosition = Math.floor((Math.random() * curses.frases.length - 1));
+            let randomGamePosition = Math.floor((Math.random() * (games.length - 1)));
+            let randomCursePosition = Math.floor((Math.random() * (curses.frases.length - 1)));
             let game = games[randomGamePosition].name;
             let curse = curses.frases[randomCursePosition];
 
