@@ -2,7 +2,7 @@ const Telegram = require('telegram-node-bot');
 const TelegramBaseController = Telegram.TelegramBaseController;
 
 class OpinionController extends TelegramBaseController {
-    handle() {
+    handle($) {
         $.sendMessage(`${$.query.subject} é uma bosta!`);
     }
 
