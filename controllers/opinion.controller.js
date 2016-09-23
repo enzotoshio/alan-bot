@@ -9,7 +9,11 @@ class OpinionController extends TelegramBaseController {
         if (!$.query.subject) {
           $.sendMessage(`Poha, você quer minha opinião no que?`);
         } else {
-          $.sendMessage(`${$.query.subject} ${curses.frases[randomCursePosition]}`);
+          const subject = $.query.subject.match(/([A-Z]?[a-z]+)|([A-Z]+(?![a-z]))/gm)
+            .join(' ')
+            .toLowerCase();
+
+          $.sendMessage(`${subject} ${curses.frases[randomCursePosition]}`);
         }
     }
 }
