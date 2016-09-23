@@ -9,9 +9,14 @@ class OpinionController extends TelegramBaseController {
         if (!$.query.subject) {
           $.sendMessage(`Poha, você quer minha opinião no que?`);
         } else {
-          const subject = $.query.subject.match(/([A-Z]?[a-z]+)|([A-Z]+(?![a-z]))/gm)
-            .join(' ')
-            .toLowerCase();
+          let subject = $.query.subject;
+          const isNameRef = subject.match(/\@|\#/gm);
+
+          if (!isNameRef) {
+            subject = subject.match(/([A-Z]?[a-z]+)|([A-Z]+(?![a-z]))/gm)
+              .join(' ')
+              .toLowerCase();
+          }
 
           $.sendMessage(`${subject} ${curses.frases[randomCursePosition]}`);
         }
